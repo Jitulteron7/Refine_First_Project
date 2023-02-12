@@ -11,6 +11,7 @@ import "@pankod/refine-antd/dist/reset.css";
 
 import dataProvider from "@pankod/refine-simple-rest";
 import routerProvider from "@pankod/refine-react-router-v6";
+import { PostCreate, PostEdit, PostList, PostShow } from "pages";
 
 function App() {
   return (
@@ -21,6 +22,15 @@ function App() {
       ReadyPage={ReadyPage}
       catchAll={<ErrorComponent />}
       routerProvider={routerProvider}
+      resources={[
+        {
+          name: "posts",
+          list: PostList,
+          show: PostShow,
+          edit: PostEdit,
+          create: PostCreate,
+        },
+      ]}
     />
   );
 }
